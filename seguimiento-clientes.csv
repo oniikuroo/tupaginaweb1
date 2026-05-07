@@ -1,0 +1,4 @@
+negocio,sector,ciudad,contacto,web_actual,problema_detectado,mensaje_enviado,fecha_contacto,respuesta,estado,proximo_paso
+Casa Ejemplo,Restaurante,Madrid,instagram.com/casaejemplo,No tiene web,No aparece menu online,No,,,Pendiente,Enviar demo restaurante
+Salon Ejemplo,Peluqueria,Valencia,600000000,Web antigua,No tiene WhatsApp visible,No,,,Pendiente,Enviar demo peluqueria
+Clinica Ejemplo,Clinica,Sevilla,info@clinicaejemplo.com,Web lenta,No se ve bien en movil,No,,,Pendiente,Enviar demo clinica

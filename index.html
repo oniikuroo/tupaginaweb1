@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TuWebLocal | Webs para negocios locales</title>
+  <meta name="description" content="Diseno de paginas web rapidas, modernas y preparadas para conseguir contactos por WhatsApp para negocios locales.">
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #d2d2d7;
+      --paper: #f5f5f7;
+      --white: #ffffff;
+      --accent: #1d1d1f;
+      --accent-dark: #000000;
+      --accent-2: #86868b;
+      --soft: #f2f2f4;
+      --shadow: 0 26px 80px rgba(0, 0, 0, .10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Arial, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(245, 245, 247, .78); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0, 0, 0, .08); }
+    .nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; font-size: 19px; }
+    .brand::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: #1d1d1f; box-shadow: 0 0 0 6px rgba(0, 0, 0, .06); }
+    .nav-links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 14px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 999px; border: 1px solid transparent; font-weight: 750; transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { background: #1d1d1f; color: var(--white); box-shadow: 0 12px 28px rgba(0, 0, 0, .18); }
+    .btn.primary:hover { background: #000000; box-shadow: 0 16px 36px rgba(0, 0, 0, .24); }
+    .btn.secondary { background: rgba(255, 255, 255, .72); border-color: rgba(0, 0, 0, .10); box-shadow: 0 10px 30px rgba(0, 0, 0, .05); }
+
+    .hero { position: relative; min-height: calc(100vh - 68px); display: flex; flex-direction: column; justify-content: center; overflow: hidden; background: linear-gradient(180deg, #ffffff, #f5f5f7 78%); color: var(--ink); }
+    .hero::before { content: ""; position: absolute; inset: auto 0 0; height: 44%; background: radial-gradient(ellipse at center, rgba(0,0,0,.08), transparent 62%); opacity: .5; }
+    .hero > .wrap { position: relative; z-index: 1; flex: 1; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, .72fr); align-items: center; gap: 38px; padding: 72px 0 48px; }
+    .hero-content { max-width: 735px; }
+    .eyebrow { display: inline-flex; align-items: center; min-height: 32px; padding: 0 13px; border: 1px solid rgba(0, 0, 0, .10); border-radius: 999px; margin-bottom: 18px; color: var(--muted); background: rgba(255,255,255,.72); font-weight: 750; font-size: 14px; }
+    h1 { margin: 0 0 20px; font-size: clamp(44px, 7vw, 88px); line-height: .96; letter-spacing: 0; }
+    .hero p { max-width: 630px; margin: 0 0 28px; font-size: 21px; color: var(--muted); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-dashboard { justify-self: end; width: min(100%, 430px); border: 1px solid rgba(0,0,0,.08); border-radius: 28px; padding: 14px; background: rgba(255,255,255,.78); box-shadow: 0 34px 90px rgba(0,0,0,.14); backdrop-filter: blur(22px); animation: floatIn .9s ease both .2s, drift 8s ease-in-out infinite 1.2s; }
+    .browser { overflow: hidden; border-radius: 20px; background: #ffffff; color: var(--ink); }
+    .browser-top { display: flex; gap: 6px; padding: 13px 14px; background: #f5f5f7; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #c7c7cc; }
+    .dot:nth-child(2) { background: #d8d8dc; }
+    .dot:nth-child(3) { background: #a1a1a6; }
+    .browser-body { padding: 18px; }
+    .mini-hero { height: 112px; border-radius: 16px; background: linear-gradient(135deg, #1d1d1f, #8e8e93); margin-bottom: 16px; }
+    .mini-row { height: 12px; border-radius: 99px; background: #e5e5ea; margin-bottom: 10px; }
+    .mini-row.short { width: 62%; }
+    .mini-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+    .mini-card { height: 64px; border-radius: 14px; background: #f5f5f7; border: 1px solid #e5e5ea; }
+    .result-pill { display: inline-flex; margin-top: 14px; min-height: 32px; align-items: center; padding: 0 12px; border-radius: 999px; background: #f5f5f7; color: #1d1d1f; border: 1px solid #e5e5ea; font-size: 13px; font-weight: 750; }
+    .hero-strip { position: relative; z-index: 2; width: 100%; background: rgba(255, 255, 255, .72); color: var(--ink); border-top: 1px solid rgba(0, 0, 0, .08); backdrop-filter: saturate(180%) blur(18px); }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
+    .metric { min-height: 82px; padding: 16px 22px; background: rgba(255,255,255,.96); }
+    .metric strong { display: block; font-size: 24px; }
+    .metric span { color: var(--muted); font-size: 14px; }
+
+    section { padding: 76px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    h2 { margin: 0; font-size: clamp(30px, 4vw, 46px); line-height: 1.04; letter-spacing: 0; }
+    .section-head p { max-width: 470px; margin: 0; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: rgba(255,255,255,.88); border: 1px solid rgba(0, 0, 0, .08); border-radius: 22px; box-shadow: 0 10px 30px rgba(0, 0, 0, .04); overflow: hidden; transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
+    .card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: rgba(0, 0, 0, .13); }
+    .demo-img { height: 190px; background-size: cover; background-position: center; transition: transform .45s ease; }
+    .card:hover .demo-img { transform: scale(1.05); }
+    .demo-body, .price-body, .step { padding: 22px; }
+    .tag { display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; background: var(--soft); color: var(--muted); font-size: 12px; font-weight: 750; margin-bottom: 12px; }
+    h3 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    .card p, .step p { margin: 0; color: var(--muted); }
+    .price { margin: 12px 0 18px; font-size: 38px; font-weight: 850; }
+    .price small { color: var(--muted); font-size: 15px; font-weight: 650; }
+    ul { padding: 0; margin: 0 0 22px; list-style: none; color: var(--muted); }
+    li { margin: 10px 0; padding-left: 24px; position: relative; }
+    li::before { content: "+"; position: absolute; left: 0; color: #1d1d1f; font-weight: 900; }
+    .featured { border-color: rgba(0, 0, 0, .20); box-shadow: var(--shadow); position: relative; }
+    .featured::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: #1d1d1f; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .step { background: rgba(255,255,255,.88); border: 1px solid rgba(0, 0, 0, .08); border-radius: 22px; transition: transform .24s ease, box-shadow .24s ease; }
+    .step:hover { transform: translateY(-5px); box-shadow: 0 18px 42px rgba(18, 32, 46, .10); }
+    .num { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: #1d1d1f; color: var(--white); font-weight: 850; margin-bottom: 16px; }
+    .cta { position: relative; overflow: hidden; padding: 76px 0; background: #1d1d1f; color: var(--white); }
+    .cta::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0, rgba(255,255,255,.16), transparent 42%); opacity: .8; }
+    .cta .wrap { position: relative; z-index: 1; }
+    .cta-box { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 28px; }
+    .cta p { margin: 12px 0 0; color: rgba(255, 255, 255, .78); max-width: 640px; }
+    .contact-panel { background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .18); border-radius: 22px; padding: 24px; box-shadow: 0 22px 55px rgba(0,0,0,.20); backdrop-filter: blur(14px); }
+    .contact-panel a { width: 100%; margin-top: 12px; }
+    footer { padding: 28px 0; color: var(--muted); font-size: 14px; background: var(--white); border-top: 1px solid var(--line); }
+
+    @media (max-width: 820px) {
+      .nav-links a:not(.btn) { display: none; }
+      .hero { min-height: auto; }
+      .hero > .wrap { grid-template-columns: 1fr; gap: 28px; padding: 56px 0 34px; }
+      .hero-dashboard { justify-self: start; }
+      .hero p { font-size: 18px; }
+      .metrics, .grid, .steps, .cta-box { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 12px; }
+      section { padding: 56px 0; }
+    }
+
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 24px, 1120px); }
+      .nav { min-height: 62px; }
+      .brand { font-size: 17px; }
+      .btn { min-height: 42px; padding: 0 15px; }
+      h1 { font-size: clamp(38px, 12vw, 54px); }
+      .hero-dashboard { width: 100%; border-radius: 22px; animation: floatIn .9s ease both .2s; }
+      .browser { border-radius: 16px; }
+      .mini-cards { grid-template-columns: 1fr; }
+      .mini-card { height: 48px; }
+      .metric { min-height: auto; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(24px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero-content, .section-head, .metric, .card, .step, .cta-box { animation: fadeUp .72s ease both; }
+    .card:nth-child(2), .step:nth-child(2), .metric:nth-child(2) { animation-delay: .08s; }
+    .card:nth-child(3), .step:nth-child(3), .metric:nth-child(3) { animation-delay: .16s; }
+    .step:nth-child(4) { animation-delay: .24s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav wrap" aria-label="Principal">
+      <a class="brand" href="#">TuWebLocal</a>
+      <div class="nav-links">
+        <a href="#demos">Demos</a>
+        <a href="#precios">Precios</a>
+        <a href="#proceso">Proceso</a>
+        <a class="btn primary" href="https://wa.me/34693860908?text=Hola,%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noreferrer">WhatsApp</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-content">
+          <div class="eyebrow">Webs para negocios locales</div>
+          <h1>Paginas web para negocios que quieren mas clientes.</h1>
+          <p>Diseno webs rapidas, modernas y preparadas para movil, Google y WhatsApp. Ideal para restaurantes, peluquerias, clinicas, talleres y profesionales.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="https://wa.me/34693860908?text=Hola,%20quiero%20ver%20una%20demo%20de%20web" target="_blank" rel="noreferrer">Pedir una demo</a>
+            <a class="btn secondary" href="#precios">Ver precios</a>
+          </div>
+        </div>
+        <div class="hero-dashboard" aria-hidden="true">
+          <div class="browser">
+            <div class="browser-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="browser-body">
+              <div class="mini-hero"></div>
+              <div class="mini-row"></div>
+              <div class="mini-row short"></div>
+              <div class="mini-cards">
+                <div class="mini-card"></div>
+                <div class="mini-card"></div>
+                <div class="mini-card"></div>
+              </div>
+              <div class="result-pill">+ contactos por WhatsApp</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-strip">
+        <div class="wrap metrics">
+          <div class="metric"><strong>7 dias</strong><span>Entrega habitual de una web basica</span></div>
+          <div class="metric"><strong>100%</strong><span>Adaptada a movil y WhatsApp</span></div>
+          <div class="metric"><strong>49 EUR/mes</strong><span>Mantenimiento opcional</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demos">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Demos que puedes vender</h2>
+          <p>Ensena estas muestras cuando contactes negocios. Cada demo se puede adaptar con sus fotos, servicios, horarios, ubicacion y WhatsApp.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="demo-img" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="demo-body">
+              <span class="tag">Restaurantes</span>
+              <h3>Menu, reservas y ubicacion</h3>
+              <p>Una web visual con carta, horarios, Google Maps y boton directo para reservar.</p>
+              <p style="margin-top:14px"><a class="btn secondary" href="demos/restaurante.html">Ver demo</a></p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="demo-img" style="background-image:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="demo-body">
+              <span class="tag">Peluquerias</span>
+              <h3>Servicios y citas por WhatsApp</h3>
+              <p>Disenada para mostrar trabajos, precios y recibir reservas desde el movil.</p>
+              <p style="margin-top:14px"><a class="btn secondary" href="demos/peluqueria.html">Ver demo</a></p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="demo-img" style="background-image:url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=80')"></div>
+            <div class="demo-body">
+              <span class="tag">Clinicas</span>
+              <h3>Confianza, servicios y contacto</h3>
+              <p>Una web clara para explicar tratamientos, equipo, ubicacion y pedir consulta.</p>
+              <p style="margin-top:14px"><a class="btn secondary" href="demos/clinica.html">Ver demo</a></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="precios">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Precios simples</h2>
+          <p>Empieza con estos precios para cerrar tus primeros clientes. Luego subelos cuando tengas trabajos reales y testimonios.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="price-body">
+              <span class="tag">Inicio</span>
+              <h3>Web basica</h3>
+              <div class="price">399 EUR</div>
+              <ul>
+                <li>Una pagina completa</li>
+                <li>Diseno responsive</li>
+                <li>Boton de WhatsApp</li>
+                <li>Google Maps</li>
+              </ul>
+              <a class="btn secondary" href="https://wa.me/34693860908?text=Hola,%20quiero%20la%20web%20basica" target="_blank" rel="noreferrer">Pedir presupuesto</a>
+            </div>
+          </article>
+          <article class="card featured">
+            <div class="price-body">
+              <span class="tag">Mas vendido</span>
+              <h3>Web profesional</h3>
+              <div class="price">799 EUR</div>
+              <ul>
+                <li>Hasta 5 secciones</li>
+                <li>SEO basico local</li>
+                <li>Formulario de contacto</li>
+                <li>Textos orientados a vender</li>
+              </ul>
+              <a class="btn primary" href="https://wa.me/34693860908?text=Hola,%20quiero%20la%20web%20profesional" target="_blank" rel="noreferrer">Pedir presupuesto</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="price-body">
+              <span class="tag">Mensual</span>
+              <h3>Mantenimiento</h3>
+              <div class="price">49 EUR <small>/mes</small></div>
+              <ul>
+                <li>Cambios pequenos</li>
+                <li>Revision tecnica</li>
+                <li>Copias de seguridad</li>
+                <li>Soporte por WhatsApp</li>
+              </ul>
+              <a class="btn secondary" href="https://wa.me/34693860908?text=Hola,%20quiero%20mantenimiento%20web" target="_blank" rel="noreferrer">Consultar</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Como trabajo</h2>
+          <p>Un proceso facil de explicar por mensaje cuando contactes negocios por Google Maps, Instagram o WhatsApp.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><h3>Reviso tu negocio</h3><p>Veo tu web actual, redes, fotos, resenas y oportunidades de mejora.</p></div>
+          <div class="step"><div class="num">2</div><h3>Preparo una propuesta</h3><p>Te digo que pagina haria y que necesita para conseguir mas contactos.</p></div>
+          <div class="step"><div class="num">3</div><h3>Diseno y publico</h3><p>Creo la web adaptada a movil, con textos claros y llamadas a la accion.</p></div>
+          <div class="step"><div class="num">4</div><h3>Mejoramos despues</h3><p>Podemos anadir SEO, nuevas secciones, resenas, campanas o mantenimiento.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap cta-box">
+        <div>
+          <h2>Quieres una web para conseguir mas clientes?</h2>
+          <p>Escribeme por WhatsApp y te enseno una demo adaptada a tu tipo de negocio. Sin compromiso.</p>
+        </div>
+        <div class="contact-panel">
+          <strong>Contacto rapido</strong>
+          <p>Cambia este numero por el tuyo dentro del archivo.</p>
+          <a class="btn primary" href="https://wa.me/34693860908?text=Hola,%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noreferrer">Hablar por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">TuWebLocal - Webs para negocios locales. Cambia este texto por tu nombre, ciudad y datos reales.</div>
+  </footer>
+</body>
+</html>
