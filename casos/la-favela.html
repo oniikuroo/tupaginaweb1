@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caso real La Favela | Oni Web Studio</title>
+  <meta name="description" content="Caso real de Oni Web Studio: web para La Favela Lounge Bar con carta digital, experiencia movil y contenido multidioma.">
+  <style>
+    :root {
+      --ink: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #d2d2d7;
+      --paper: #f5f5f7;
+      --white: #ffffff;
+      --dark: #111111;
+      --shadow: 0 26px 80px rgba(0, 0, 0, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Arial, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #1d1d1f; outline-offset: 3px; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(245,245,247,.82); border-bottom: 1px solid rgba(0,0,0,.08); backdrop-filter: blur(20px); }
+    .nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; font-size: 18px; }
+    .brand img { width: 40px; height: 40px; object-fit: contain; }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid transparent; font-weight: 800; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { background: var(--dark); color: var(--white); box-shadow: 0 12px 28px rgba(0,0,0,.18); }
+    .btn.secondary { background: rgba(255,255,255,.78); border-color: rgba(0,0,0,.10); }
+    .hero { padding: 74px 0 58px; background: linear-gradient(180deg, #ffffff, #f5f5f7); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(340px, 1.05fr); gap: 34px; align-items: center; }
+    .tag { display: inline-flex; align-items: center; min-height: 30px; padding: 0 12px; border-radius: 999px; background: #eeeeef; color: var(--muted); font-size: 13px; font-weight: 800; margin-bottom: 16px; }
+    h1 { margin: 0 0 18px; font-size: clamp(44px, 7vw, 82px); line-height: .96; letter-spacing: 0; }
+    .hero p { max-width: 640px; margin: 0 0 26px; color: var(--muted); font-size: 20px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .preview { min-height: 500px; border-radius: 28px; background: #121212 url('../assets/favela-v8.png') center / contain no-repeat; border: 1px solid rgba(0,0,0,.10); box-shadow: var(--shadow); }
+    section { padding: 72px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
+    h2 { margin: 0; font-size: clamp(30px, 4vw, 48px); line-height: 1.04; }
+    .section-head p { max-width: 520px; margin: 0; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .card { min-height: 170px; padding: 22px; border-radius: 20px; background: rgba(255,255,255,.88); border: 1px solid rgba(0,0,0,.08); box-shadow: 0 10px 30px rgba(0,0,0,.04); }
+    .card strong { display: block; margin-bottom: 8px; font-size: 18px; }
+    .card span, .card p { color: var(--muted); margin: 0; }
+    .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; align-items: start; }
+    .panel { padding: 28px; border-radius: 24px; background: rgba(255,255,255,.88); border: 1px solid rgba(0,0,0,.08); box-shadow: 0 10px 30px rgba(0,0,0,.04); }
+    .panel h3 { margin: 0 0 10px; font-size: 24px; }
+    .panel p { color: var(--muted); margin: 0 0 16px; }
+    ul { list-style: none; padding: 0; margin: 0; color: var(--muted); }
+    li { position: relative; padding-left: 24px; margin: 10px 0; }
+    li::before { content: "+"; position: absolute; left: 0; color: var(--ink); font-weight: 900; }
+    .dark-band { background: #111111; color: #ffffff; }
+    .dark-band p { color: rgba(255,255,255,.76); }
+    footer { padding: 28px 0; color: var(--muted); background: #ffffff; border-top: 1px solid var(--line); }
+
+    @media (max-width: 860px) {
+      .hero-grid, .split, .grid { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 12px; }
+      .preview { min-height: 340px; }
+      .nav-actions a:not(.btn) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav wrap" aria-label="Principal">
+      <a class="brand" href="../index.html"><img src="../assets/logo-oni-transparent-black.png" alt="Logo Oni Web Studio">Oni Web Studio</a>
+      <div class="nav-actions">
+        <a href="../index.html#demos">Soluciones</a>
+        <a href="../index.html#precios">Planes</a>
+        <a class="btn primary" href="https://wa.me/34693860908?text=Hola,%20he%20visto%20el%20caso%20La%20Favela%20y%20quiero%20una%20propuesta" target="_blank" rel="noreferrer">Solicitar propuesta</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="tag">Caso real</span>
+          <h1>La Favela Lounge Bar</h1>
+          <p>Una web para hosteleria pensada para enseñar la marca, facilitar la consulta de la carta y ofrecer una experiencia clara desde el movil.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="../index.html#portfolio">Volver al portfolio</a>
+            <a class="btn secondary" href="https://wa.me/34693860908?text=Hola,%20he%20visto%20el%20caso%20La%20Favela%20y%20quiero%20una%20propuesta" target="_blank" rel="noreferrer">Pedir algo similar</a>
+          </div>
+        </div>
+        <div class="preview" aria-label="Vista previa de la web La Favela"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Objetivo del proyecto</h2>
+          <p>Crear una presencia digital mas profesional para un negocio local, con informacion clara y una estructura preparada para crecer.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><strong>Carta digital</strong><span>Menu, cocktails y chupitos con rutas propias.</span></div>
+          <div class="card"><strong>Movil primero</strong><span>Diseño pensado para clientes que consultan desde el telefono.</span></div>
+          <div class="card"><strong>Multidioma</strong><span>Contenido preparado para publico local y turistas.</span></div>
+          <div class="card"><strong>Gestion interna</strong><span>Base tecnica lista para administrar contenido.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div class="panel">
+          <h3>Problema</h3>
+          <p>Un bar o lounge necesita que el cliente entienda rapido que ofrece, pueda ver la carta y se lleve una primera impresion profesional antes de visitar el local.</p>
+          <ul>
+            <li>Informacion importante dispersa.</li>
+            <li>Necesidad de consulta rapida desde movil.</li>
+            <li>Marca visual que debia sentirse mas cuidada online.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Solucion</h3>
+          <p>Una web visual con identidad propia, paginas especificas para carta y bebidas, secciones por idioma y estructura preparada para futuras mejoras.</p>
+          <ul>
+            <li>Home visual con marca clara.</li>
+            <li>Carta digital accesible.</li>
+            <li>Rutas para menu, cocktails y chupitos.</li>
+            <li>Base Laravel para escalar el proyecto.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-band">
+      <div class="wrap split">
+        <div>
+          <span class="tag">Tecnologias</span>
+          <h2>Construida con una base solida</h2>
+          <p>El proyecto usa Laravel y Blade, con una estructura pensada para separar contenido, vistas y futuras funciones de administracion.</p>
+        </div>
+        <div class="panel">
+          <ul>
+            <li>Laravel</li>
+            <li>Blade templates</li>
+            <li>SQLite</li>
+            <li>Vite</li>
+            <li>HTML y CSS responsive</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap split">
+        <div>
+          <h2>Quieres algo asi para tu negocio?</h2>
+          <p>Oni Web Studio puede adaptar este tipo de estructura a restaurantes, bares, peluquerias, clinicas, talleres y profesionales que necesitan una presencia online mas clara.</p>
+        </div>
+        <div class="panel">
+          <h3>Propuesta sin compromiso</h3>
+          <p>Enviame tu negocio, sector e Instagram o web actual. Te digo que estructura haria y como podria ayudarte a recibir mas contactos.</p>
+          <a class="btn primary" href="https://wa.me/34693860908?text=Hola,%20quiero%20una%20propuesta%20para%20mi%20negocio" target="_blank" rel="noreferrer">Pedir propuesta</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Oni Web Studio - Caso real La Favela Lounge Bar.</div>
+  </footer>
+</body>
+</html>

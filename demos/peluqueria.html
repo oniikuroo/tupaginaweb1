@@ -9,7 +9,10 @@
     html { scroll-behavior: smooth; }
     body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Arial, sans-serif; color: #1d1d1f; background: #f5f5f7; line-height: 1.5; }
     a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #1d1d1f; outline-offset: 3px; }
     .wrap { width: min(1080px, calc(100% - 32px)); margin: 0 auto; }
+    .skip-link { position: absolute; left: 16px; top: -48px; z-index: 20; min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 999px; background: #1d1d1f; color: #ffffff; transition: top .2s ease; }
+    .skip-link:focus { top: 14px; }
     header { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 18px; animation: fadeDown .7s ease both; }
     .brand { font-weight: 900; font-size: 22px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 999px; background: #1d1d1f; color: white; font-weight: 750; box-shadow: 0 14px 30px rgba(0,0,0,.18); transition: transform .2s ease, box-shadow .2s ease; }
@@ -35,13 +38,14 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <div class="wrap">
     <header>
       <a class="brand" href="../index.html">Studio Nara</a>
       <a class="btn" href="https://wa.me/34693860908?text=Hola,%20quiero%20pedir%20cita" target="_blank" rel="noreferrer">Pedir cita</a>
     </header>
   </div>
-  <main class="wrap hero">
+  <main id="contenido" class="wrap hero">
     <div>
       <h1>Corte, color y peinados con cita por WhatsApp.</h1>
       <p>Un salon moderno para cuidar tu imagen sin esperas. Reserva tu hora y recibe confirmacion directa.</p>

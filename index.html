@@ -3,8 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TuWebLocal | Webs para negocios locales</title>
-  <meta name="description" content="Diseno de paginas web rapidas, modernas y preparadas para conseguir contactos por WhatsApp para negocios locales.">
+  <title>Oni Web Studio | Webs para negocios locales</title>
+  <meta name="description" content="Oni Web Studio crea la herramienta esencial para tu negocio: paginas web rapidas, modernas y preparadas para conseguir contactos por WhatsApp.">
+  <meta property="og:title" content="Oni Web Studio | Webs para negocios locales">
+  <meta property="og:description" content="La herramienta esencial para tu negocio: webs profesionales para transmitir confianza, recibir contactos y vender mejor online.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/favela-v8.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Oni Web Studio | Webs para negocios locales">
+  <meta name="twitter:description" content="Webs profesionales para negocios locales con WhatsApp, diseno movil y estructura pensada para conseguir contactos.">
+  <meta name="theme-color" content="#1d1d1f">
   <style>
     :root {
       --ink: #1d1d1f;
@@ -23,11 +31,14 @@
     html { scroll-behavior: smooth; }
     body { margin: 0; font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Arial, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.5; }
     a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #1d1d1f; outline-offset: 3px; }
     .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    .skip-link { position: absolute; left: 16px; top: -48px; z-index: 30; min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 999px; background: #1d1d1f; color: #ffffff; transition: top .2s ease; }
+    .skip-link:focus { top: 14px; }
     header { position: sticky; top: 0; z-index: 10; background: rgba(245, 245, 247, .78); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0, 0, 0, .08); }
     .nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
     .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; font-size: 19px; }
-    .brand::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: #1d1d1f; box-shadow: 0 0 0 6px rgba(0, 0, 0, .06); }
+    .brand img { width: 42px; height: 42px; object-fit: contain; }
     .nav-links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 14px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; border-radius: 999px; border: 1px solid transparent; font-weight: 750; transition: transform .22s ease, box-shadow .22s ease, background .22s ease, border-color .22s ease; }
     .btn:hover { transform: translateY(-2px); }
@@ -67,11 +78,26 @@
     h2 { margin: 0; font-size: clamp(30px, 4vw, 46px); line-height: 1.04; letter-spacing: 0; }
     .section-head p { max-width: 470px; margin: 0; color: var(--muted); }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .solutions-grid { grid-template-columns: repeat(4, 1fr); }
     .card { background: rgba(255,255,255,.88); border: 1px solid rgba(0, 0, 0, .08); border-radius: 22px; box-shadow: 0 10px 30px rgba(0, 0, 0, .04); overflow: hidden; transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }
     .card:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: rgba(0, 0, 0, .13); }
     .demo-img { height: 190px; background-size: cover; background-position: center; transition: transform .45s ease; }
     .card:hover .demo-img { transform: scale(1.05); }
     .demo-body, .price-body, .step { padding: 22px; }
+    .demo-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .demo-links a:not(.btn) { min-height: 38px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; border: 1px solid rgba(0, 0, 0, .10); color: var(--muted); font-size: 13px; font-weight: 750; background: rgba(255,255,255,.72); }
+    .demo-links .btn { min-height: 38px; padding: 0 14px; font-size: 13px; }
+    .case-study { display: grid; grid-template-columns: minmax(0, .95fr) minmax(340px, 1.05fr); gap: 26px; align-items: center; }
+    .case-visual { min-height: 430px; border-radius: 24px; background: #111 url('assets/favela-v8.png') center / contain no-repeat; box-shadow: var(--shadow); border: 1px solid rgba(0, 0, 0, .10); }
+    .case-panel { padding: 30px; border-radius: 24px; background: rgba(255,255,255,.88); border: 1px solid rgba(0, 0, 0, .08); box-shadow: 0 10px 30px rgba(0, 0, 0, .04); }
+    .case-points { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 22px 0; }
+    .case-point { padding: 16px; border-radius: 16px; background: var(--soft); border: 1px solid rgba(0, 0, 0, .06); }
+    .case-point strong { display: block; margin-bottom: 4px; }
+    .case-point span { color: var(--muted); font-size: 14px; }
+    .includes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .include-item { min-height: 150px; padding: 22px; border-radius: 20px; background: rgba(255,255,255,.88); border: 1px solid rgba(0, 0, 0, .08); }
+    .include-item strong { display: block; font-size: 18px; margin-bottom: 8px; }
+    .include-item span { color: var(--muted); }
     .tag { display: inline-flex; align-items: center; min-height: 26px; padding: 0 10px; border-radius: 999px; background: var(--soft); color: var(--muted); font-size: 12px; font-weight: 750; margin-bottom: 12px; }
     h3 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
     .card p, .step p { margin: 0; color: var(--muted); }
@@ -93,6 +119,10 @@
     .cta p { margin: 12px 0 0; color: rgba(255, 255, 255, .78); max-width: 640px; }
     .contact-panel { background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .18); border-radius: 22px; padding: 24px; box-shadow: 0 22px 55px rgba(0,0,0,.20); backdrop-filter: blur(14px); }
     .contact-panel a { width: 100%; margin-top: 12px; }
+    .faq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .faq-item { padding: 24px; border-radius: 22px; border: 1px solid rgba(0, 0, 0, .08); background: rgba(255,255,255,.88); box-shadow: 0 10px 30px rgba(0, 0, 0, .04); }
+    .faq-item h3 { font-size: 20px; }
+    .faq-item p { margin: 0; color: var(--muted); }
     footer { padding: 28px 0; color: var(--muted); font-size: 14px; background: var(--white); border-top: 1px solid var(--line); }
 
     @media (max-width: 820px) {
@@ -101,10 +131,17 @@
       .hero > .wrap { grid-template-columns: 1fr; gap: 28px; padding: 56px 0 34px; }
       .hero-dashboard { justify-self: start; }
       .hero p { font-size: 18px; }
-      .metrics, .grid, .steps, .cta-box { grid-template-columns: 1fr; }
+      .metrics, .grid, .steps, .cta-box, .faq, .case-study, .includes-grid { grid-template-columns: 1fr; }
+      .case-visual { min-height: 310px; }
+      .case-points { grid-template-columns: 1fr; }
       .section-head { display: block; }
       .section-head p { margin-top: 12px; }
       section { padding: 56px 0; }
+    }
+
+    @media (max-width: 1040px) and (min-width: 821px) {
+      .solutions-grid { grid-template-columns: repeat(2, 1fr); }
+      .includes-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 520px) {
@@ -146,28 +183,31 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
   <header>
     <nav class="nav wrap" aria-label="Principal">
-      <a class="brand" href="#">TuWebLocal</a>
+      <a class="brand" href="#"><img src="assets/logo-oni-transparent-black.png" alt="Logo Oni Web Studio">Oni Web Studio</a>
       <div class="nav-links">
-        <a href="#demos">Demos</a>
-        <a href="#precios">Precios</a>
+        <a href="#demos">Soluciones</a>
+        <a href="#precios">Planes</a>
         <a href="#proceso">Proceso</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="https://www.instagram.com/oni.webstudio/" target="_blank" rel="noreferrer">Instagram</a>
         <a class="btn primary" href="https://wa.me/34693860908?text=Hola,%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noreferrer">WhatsApp</a>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="contenido">
     <section class="hero">
       <div class="wrap">
         <div class="hero-content">
-          <div class="eyebrow">Webs para negocios locales</div>
-          <h1>Paginas web para negocios que quieren mas clientes.</h1>
-          <p>Diseno webs rapidas, modernas y preparadas para movil, Google y WhatsApp. Ideal para restaurantes, peluquerias, clinicas, talleres y profesionales.</p>
+          <div class="eyebrow">Oni Web Studio</div>
+          <h1>La web profesional que convierte visitas en clientes.</h1>
+          <p>Oni Web Studio crea la herramienta esencial para que tu negocio transmita confianza, reciba contactos y venda mejor online.</p>
           <div class="hero-actions">
-            <a class="btn primary" href="https://wa.me/34693860908?text=Hola,%20quiero%20ver%20una%20demo%20de%20web" target="_blank" rel="noreferrer">Pedir una demo</a>
-            <a class="btn secondary" href="#precios">Ver precios</a>
+            <a class="btn primary" href="https://wa.me/34693860908?text=Hola,%20quiero%20una%20propuesta%20para%20mi%20negocio" target="_blank" rel="noreferrer">Solicitar propuesta</a>
+            <a class="btn secondary" href="#precios">Ver planes</a>
           </div>
         </div>
         <div class="hero-dashboard" aria-hidden="true">
@@ -189,9 +229,28 @@
       </div>
       <div class="hero-strip">
         <div class="wrap metrics">
-          <div class="metric"><strong>7 dias</strong><span>Entrega habitual de una web basica</span></div>
+          <div class="metric"><strong>Desde 7 dias</strong><span>Entrega habitual de una web basica</span></div>
           <div class="metric"><strong>100%</strong><span>Adaptada a movil y WhatsApp</span></div>
           <div class="metric"><strong>49 EUR/mes</strong><span>Mantenimiento opcional</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="incluye">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Que incluye tu web</h2>
+          <p>Lo necesario para que tu negocio se vea profesional, sea facil de entender y convierta visitas en conversaciones reales.</p>
+        </div>
+        <div class="includes-grid">
+          <div class="include-item"><strong>Diseno responsive</strong><span>Adaptado a movil, tablet y ordenador.</span></div>
+          <div class="include-item"><strong>WhatsApp directo</strong><span>Botones claros para que el cliente contacte rapido.</span></div>
+          <div class="include-item"><strong>SEO local basico</strong><span>Estructura inicial para aparecer mejor en busquedas locales.</span></div>
+          <div class="include-item"><strong>Textos claros</strong><span>Mensajes orientados a confianza, servicios y accion.</span></div>
+          <div class="include-item"><strong>Google Maps</strong><span>Ubicacion, horarios y datos faciles de encontrar.</span></div>
+          <div class="include-item"><strong>Carga rapida</strong><span>Una experiencia ligera y cuidada para no perder visitas.</span></div>
+          <div class="include-item"><strong>Secciones clave</strong><span>Inicio, servicios, contacto, preguntas y llamadas a accion.</span></div>
+          <div class="include-item"><strong>Base escalable</strong><span>Preparada para anadir reservas, blog, cartas o mantenimiento.</span></div>
         </div>
       </div>
     </section>
@@ -199,35 +258,35 @@
     <section id="demos">
       <div class="wrap">
         <div class="section-head">
-          <h2>Demos que puedes vender</h2>
-          <p>Ensena estas muestras cuando contactes negocios. Cada demo se puede adaptar con sus fotos, servicios, horarios, ubicacion y WhatsApp.</p>
+          <h2>Soluciones digitales para negocios con ambicion</h2>
+          <p>Ideas de estructura para distintos sectores. Cada web se adapta a tus servicios, tono, fotos, ubicacion y forma de trabajar.</p>
         </div>
-        <div class="grid">
+        <div class="grid solutions-grid">
           <article class="card">
             <div class="demo-img" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80')"></div>
             <div class="demo-body">
               <span class="tag">Restaurantes</span>
-              <h3>Menu, reservas y ubicacion</h3>
-              <p>Una web visual con carta, horarios, Google Maps y boton directo para reservar.</p>
-              <p style="margin-top:14px"><a class="btn secondary" href="demos/restaurante.html">Ver demo</a></p>
+              <h3>Mas reservas, menos friccion</h3>
+              <p>Carta, horarios, ubicacion y reserva directa para que el cliente decida sin tener que preguntar de mas.</p>
+              <p style="margin-top:14px"><a class="btn secondary" href="demos/restaurante.html">Ver ejemplo</a></p>
             </div>
           </article>
           <article class="card">
             <div class="demo-img" style="background-image:url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80')"></div>
             <div class="demo-body">
               <span class="tag">Peluquerias</span>
-              <h3>Servicios y citas por WhatsApp</h3>
-              <p>Disenada para mostrar trabajos, precios y recibir reservas desde el movil.</p>
-              <p style="margin-top:14px"><a class="btn secondary" href="demos/peluqueria.html">Ver demo</a></p>
+              <h3>Una imagen que transmite valor</h3>
+              <p>Servicios, trabajos, precios y citas por WhatsApp en una experiencia pensada para convertir visitas en reservas.</p>
+              <p style="margin-top:14px"><a class="btn secondary" href="demos/peluqueria.html">Ver ejemplo</a></p>
             </div>
           </article>
           <article class="card">
             <div class="demo-img" style="background-image:url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=80')"></div>
             <div class="demo-body">
               <span class="tag">Clinicas</span>
-              <h3>Confianza, servicios y contacto</h3>
-              <p>Una web clara para explicar tratamientos, equipo, ubicacion y pedir consulta.</p>
-              <p style="margin-top:14px"><a class="btn secondary" href="demos/clinica.html">Ver demo</a></p>
+              <h3>Confianza antes de la primera llamada</h3>
+              <p>Una web clara para presentar servicios, equipo, ubicacion y facilitar que el paciente pida consulta.</p>
+              <p style="margin-top:14px"><a class="btn secondary" href="demos/clinica.html">Ver ejemplo</a></p>
             </div>
           </article>
         </div>
@@ -237,8 +296,8 @@
     <section id="precios">
       <div class="wrap">
         <div class="section-head">
-          <h2>Precios simples</h2>
-          <p>Empieza con estos precios para cerrar tus primeros clientes. Luego subelos cuando tengas trabajos reales y testimonios.</p>
+          <h2>Planes claros para empezar con criterio</h2>
+          <p>Elige una presencia digital profesional adaptada al momento de tu negocio, con una estructura pensada para generar confianza y contactos reales.</p>
         </div>
         <div class="grid">
           <article class="card">
@@ -302,23 +361,69 @@
       </div>
     </section>
 
+    <section id="portfolio">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Referencias y portfolio</h2>
+          <p>Algunos trabajos y ejemplos que muestran como puede verse una presencia digital profesional aplicada a negocios reales o sectores concretos.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="demo-img" style="background-image:url('assets/favela-v8.png')"></div>
+            <div class="demo-body">
+              <span class="tag">Referencia</span>
+              <h3>La Favela Lounge Bar</h3>
+              <p>Carta digital, experiencia movil, contenido multidioma e identidad visual para un negocio de hosteleria.</p>
+              <div class="demo-links">
+                <a class="btn secondary" href="casos/la-favela.html">Ver referencia</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Preguntas frecuentes</h2>
+          <p>Respuestas cortas para quitar friccion cuando un cliente potencial te pregunte por tiempos, textos o cambios.</p>
+        </div>
+        <div class="faq">
+          <article class="faq-item">
+            <h3>Cuanto tardas en entregar?</h3>
+            <p>La web base puede estar lista en unos 7 dias si el cliente envia logo, textos, fotos y datos del negocio a tiempo.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Necesito tener textos preparados?</h3>
+            <p>No necesariamente. Puedes partir de esta plantilla y adaptar los textos al sector, servicios y tono del negocio.</p>
+          </article>
+          <article class="faq-item">
+            <h3>Se puede ampliar despues?</h3>
+            <p>Si. Puedes anadir mas secciones, SEO local, testimonios, formularios o mantenimiento segun el presupuesto del cliente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="cta">
       <div class="wrap cta-box">
         <div>
           <h2>Quieres una web para conseguir mas clientes?</h2>
-          <p>Escribeme por WhatsApp y te enseno una demo adaptada a tu tipo de negocio. Sin compromiso.</p>
+          <p>Escribeme por WhatsApp y preparo una propuesta adaptada a tu tipo de negocio. Sin compromiso.</p>
         </div>
         <div class="contact-panel">
           <strong>Contacto rapido</strong>
-          <p>Cambia este numero por el tuyo dentro del archivo.</p>
+          <p>Escribeme por WhatsApp o visita Instagram para ver avances, ejemplos y contenido del estudio.</p>
           <a class="btn primary" href="https://wa.me/34693860908?text=Hola,%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noreferrer">Hablar por WhatsApp</a>
+          <a class="btn secondary" href="https://www.instagram.com/oni.webstudio/" target="_blank" rel="noreferrer">Ver Instagram</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">TuWebLocal - Webs para negocios locales. Cambia este texto por tu nombre, ciudad y datos reales.</div>
+    <div class="wrap">Oni Web Studio - Webs para negocios locales. Instagram: @oni.webstudio</div>
   </footer>
 </body>
 </html>
